@@ -24,6 +24,14 @@ VoiceDraw Agent 是一款面向"纯语音控制绘图工具"课题的 AI 绘图 
 
 ---
 
+## 🎬 演示视频
+
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/演示视频.mp4" width="80%" controls></video>
+</div>
+
+---
+
 ## ✨ 项目特点
 
 | 特点 | 说明 |

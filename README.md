@@ -1,130 +1,172 @@
-# VoiceDraw Agent
+<div align="center">
 
-VoiceDraw Agent 是一款面向“纯语音控制绘图工具”课题的 AI 绘图 Demo。用户通过语音描述绘图需求，系统会进行指令理解、提示词优化、用户确认、图像生成，并支持基于已有图片的语音修改、历史版本管理和图片下载。
+<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
+<img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI"/>
+<img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React"/>
+<img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite"/>
+<img src="https://img.shields.io/badge/CrewAI-FF6B6B?style=for-the-badge&logo=robotframework&logoColor=white" alt="CrewAI"/>
+<img src="https://img.shields.io/badge/DashScope-00C4FF?style=for-the-badge&logo=alibabacloud&logoColor=white" alt="DashScope"/>
 
-## 项目特点
+<br/>
 
-- **语音驱动创作流程**：使用浏览器 Web Speech API 进行中文语音识别，用户通过语音完成绘图描述、确认、修改、回退和清空等操作。
-- **CrewAI 多智能体架构**：后端使用 CrewAI 构建三个核心智能体：
-  - `IntentAgent`：负责识别用户语音指令意图，例如新图生成、图片修改、重新生成、回退和清空。
-  - `PromptAgent`：负责将用户自然语言绘图需求优化为高质量绘图提示词。
-  - `ConfirmAgent`：负责理解用户对提示词的确认、补充、修改或拒绝意图。
-- **FastAPI 后端服务**：提供语音指令解析、提示词确认、图片生成、图片编辑等接口。
-- **React 前端界面**：提供科技风格的语音交互界面、图片展示区、对话区、历史版本区和下载功能。
-- **图像生成与编辑**：支持 OpenAI-compatible 图像生成接口，当前适配 DashScope `qwen-image` 系列的文生图和图像编辑能力。
-- **多轮确认机制**：系统会在生成前展示优化后的提示词，用户可以继续语音补充修改，确认后才生成图片。
-- **历史版本管理**：生成和编辑后的图片会进入历史版本区，支持点击放大、下载和语音回退。
+<img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="License"/>
+<img src="https://img.shields.io/badge/status-active-brightgreen?style=flat-square" alt="Status"/>
 
-## 技术栈
+</div>
+
+---
+
+# 🎙️ VoiceDraw Agent
+
+> 一款纯语音控制的 AI 绘图工具 —— 无需鼠标键盘，用声音完成从创意到图像的完整创作流程。
+
+VoiceDraw Agent 是一款面向"纯语音控制绘图工具"课题的 AI 绘图 Demo。用户通过语音描述绘图需求，系统进行 **指令理解 → 提示词优化 → 用户确认 → 图像生成**，并支持基于已有图片的语音修改、历史版本管理和图片下载。
+
+---
+
+## ✨ 项目特点
+
+| 特点 | 说明 |
+|------|------|
+| 🎤 **纯语音驱动** | 使用浏览器 Web Speech API 进行中文语音识别，全流程语音操作 |
+| 🤖 **CrewAI 多智能体架构** | IntentAgent / PromptAgent / ConfirmAgent 三智能体协同工作 |
+| ⚡ **FastAPI 后端服务** | 高性能异步后端，提供语音解析、图片生成、图片编辑等 API |
+| 🎨 **React 前端界面** | Glassmorphism 科技风格 UI，对话区 + 图片展示区 + 历史版本区 |
+| 🖼️ **图像生成与编辑** | 适配 DashScope `qwen-image` 系列，支持文生图 & 图像编辑 |
+| ✅ **多轮确认机制** | 生成前展示优化提示词，用户可语音补充修改，确认后再生图 |
+| 📜 **历史版本管理** | 支持点击放大、下载、语音回退到历史版本 |
+
+### 三个 CrewAI 智能体
+
+- **IntentAgent** 🧠 —— 识别用户语音指令意图（新图生成 / 图片修改 / 重新生成 / 回退 / 清空）
+- **PromptAgent** ✍️ —— 将自然语言绘图需求优化为高质量绘图提示词
+- **ConfirmAgent** 🔍 —— 理解用户对提示词的确认、补充、修改或拒绝意图
+
+---
+
+## 🛠️ 技术栈
 
 ### 前端
 
-- React 18
-- Vite
-- Axios
-- Browser Web Speech API
-- CSS Glassmorphism / Tech UI
+<p>
+  <img src="https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React"/>
+  <img src="https://img.shields.io/badge/Vite-5-646CFF?style=flat-square&logo=vite&logoColor=white" alt="Vite"/>
+  <img src="https://img.shields.io/badge/Axios-5A29E4?style=flat-square&logo=axios&logoColor=white" alt="Axios"/>
+  <img src="https://img.shields.io/badge/Web_Speech_API-4285F4?style=flat-square&logo=googlechrome&logoColor=white" alt="Web Speech API"/>
+</p>
 
 ### 后端
 
-- Python 3
-- FastAPI
-- Uvicorn
-- CrewAI
-- LiteLLM
-- OpenAI Python SDK
-- HTTPX
-- Pydantic
-- python-dotenv
+<p>
+  <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python"/>
+  <img src="https://img.shields.io/badge/FastAPI-0.115+-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI"/>
+  <img src="https://img.shields.io/badge/Uvicorn-696969?style=flat-square&logo=gunicorn&logoColor=white" alt="Uvicorn"/>
+  <img src="https://img.shields.io/badge/CrewAI-latest-FF6B6B?style=flat-square&logo=robotframework&logoColor=white" alt="CrewAI"/>
+  <img src="https://img.shields.io/badge/LiteLLM-00B4D8?style=flat-square&logo=openai&logoColor=white" alt="LiteLLM"/>
+  <img src="https://img.shields.io/badge/OpenAI_SDK-412991?style=flat-square&logo=openai&logoColor=white" alt="OpenAI SDK"/>
+  <img src="https://img.shields.io/badge/HTTPx-2F4F4F?style=flat-square&logo=python&logoColor=white" alt="HTTPx"/>
+  <img src="https://img.shields.io/badge/Pydantic-E92063?style=flat-square&logo=pydantic&logoColor=white" alt="Pydantic"/>
+</p>
 
 ### 模型服务
 
-- 文本大模型：OpenAI-compatible Chat API
-- 图像模型：OpenAI-compatible Image API 或 DashScope `qwen-image` 系列
+<p>
+  <img src="https://img.shields.io/badge/Chat_LLM-OpenAI_Compatible-412991?style=flat-square&logo=openai&logoColor=white" alt="Chat LLM"/>
+  <img src="https://img.shields.io/badge/Image_Gen-qwen--image-00C4FF?style=flat-square&logo=alibabacloud&logoColor=white" alt="Image Gen"/>
+</p>
 
-## 目录结构
+---
+
+## 📁 目录结构
 
 ```text
 VoiceDraw-Agent/
 ├── backend/
 │   ├── agents/
 │   │   ├── __init__.py
-│   │   ├── intent_agent.py      # CrewAI 意图识别智能体
-│   │   ├── prompt_agent.py      # CrewAI 提示词优化智能体
-│   │   └── confirm_agent.py     # CrewAI 用户反馈理解智能体
+│   │   ├── intent_agent.py      # 🧠 CrewAI 意图识别智能体
+│   │   ├── prompt_agent.py      # ✍️  CrewAI 提示词优化智能体
+│   │   └── confirm_agent.py     # 🔍 CrewAI 用户反馈理解智能体
 │   ├── .env.example             # 环境变量示例
-│   ├── orchestrator.py          # VoiceDrawOrchestrator，负责流程编排与智能体调度
-│   ├── config.py                # 配置加载与 CrewAI 本地存储路径配置
-│   ├── image_gen.py             # 图像生成与图像编辑服务
-│   ├── main.py                  # FastAPI 应用入口
+│   ├── orchestrator.py          # 🎯 VoiceDrawOrchestrator，流程编排与智能体调度
+│   ├── config.py                # ⚙️  配置加载 & CrewAI 存储路径
+│   ├── image_gen.py             # 🖼️  图像生成 & 图像编辑服务
+│   ├── main.py                  # 🚀 FastAPI 应用入口
 │   └── requirements.txt         # 后端依赖
 ├── frontend/
 │   ├── src/
-│   │   ├── App.jsx              # 前端主逻辑
-│   │   ├── App.css              # 前端样式
+│   │   ├── App.jsx              # 🎨 前端主逻辑
+│   │   ├── App.css              # 💅 前端样式 (Glassmorphism)
 │   │   └── main.jsx             # React 入口
 │   ├── index.html
 │   ├── package.json
 │   └── vite.config.js
 ├── .gitignore
-├── DESIGN.md                    # 初始设计文档
-├── COMPETITION_DESIGN.md        # 参赛提交设计文档
 └── README.md
 ```
 
-## 核心流程
+---
 
-```text
-用户语音输入
-  ↓
-浏览器语音识别
-  ↓
-FastAPI /api/agent/parse
-  ↓
-VoiceDrawOrchestrator 调用 CrewAI 智能体
-  ├── IntentAgent：识别用户语音意图
-  ├── PromptAgent：创建图片时优化提示词
-  └── ConfirmAgent：确认阶段理解用户反馈
-  ↓
-前端展示优化提示词并请求用户确认
-  ↓
-用户语音确认 / 补充 / 拒绝
-  ↓
-FastAPI /api/agent/confirm
-  ↓
-ConfirmAgent 理解反馈
-  ├── confirm → 生成图片
-  ├── revise → 更新提示词并再次确认
-  └── reject → 等待用户重新描述
+## 🔄 核心流程
+
+<div align="center">
+
+```mermaid
+graph TD
+    A[🎤 用户语音输入] --> B[🌐 浏览器语音识别]
+    B --> C[📡 FastAPI /api/agent/parse]
+    C --> D{VoiceDrawOrchestrator}
+    D --> E[🧠 IntentAgent<br/>意图识别]
+    D --> F[✍️ PromptAgent<br/>提示词优化]
+    D --> G[🔍 ConfirmAgent<br/>反馈理解]
+    G -->|✅ confirm| H[🖼️ 生成图片]
+    G -->|🔄 revise| F
+    G -->|❌ reject| A
+    H --> I[📜 存入历史版本]
 ```
 
-## 支持的语音能力
+</div>
 
-- 创建新图片：如“画一只穿宇航服的猫”
-- 确认生成：如“可以生成”“就用这个”
-- 补充修改提示词：如“可以，但是加一个月球背景”
-- 基于当前图修改：如“把背景改成夜晚”“给它加一顶蓝色帽子”
-- 重新生成：如“重新生成一张”
-- 回退版本：如“回到上一个版本”
-- 清空画面：如“清空画面”
+---
 
-## 本地运行
+## 🎯 支持的语音能力
 
-### 1. 克隆项目
+| 能力 | 示例语音指令 |
+|------|-------------|
+| 🖼️ 创建新图片 | "画一只穿宇航服的猫" |
+| ✅ 确认生成 | "可以生成" / "就用这个" |
+| 📝 补充修改提示词 | "可以，但是加一个月球背景" |
+| ✏️ 基于当前图修改 | "把背景改成夜晚" / "给它加一顶蓝色帽子" |
+| 🔄 重新生成 | "重新生成一张" |
+| ⏪ 回退版本 | "回到上一个版本" |
+| 🧹 清空画面 | "清空画面" |
+
+---
+
+## 🚀 本地运行
+
+### 1️⃣ 克隆项目
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/caigood/smart-voice-draw-Agent.git
 cd VoiceDraw-Agent
 ```
 
-### 2. 配置后端环境
+### 2️⃣ 配置后端
 
 ```bash
 cd backend
 python -m venv .venv
+
+# Windows
 .venv\Scripts\activate
+
+# macOS / Linux
+source .venv/bin/activate
+
 pip install -r requirements.txt
-copy .env.example .env
+copy .env.example .env   # Windows
+cp .env.example .env     # macOS / Linux
 ```
 
 编辑 `backend/.env`：
@@ -145,9 +187,9 @@ IMAGE_MODEL=qwen-image
 python main.py
 ```
 
-默认地址：`http://localhost:8000`
+> 默认运行在 `http://localhost:8000`，API 文档 `http://localhost:8000/docs`
 
-### 3. 启动前端
+### 3️⃣ 启动前端
 
 ```bash
 cd frontend
@@ -155,28 +197,40 @@ npm install
 npm run dev
 ```
 
-默认地址：`http://localhost:5173`
+> 默认运行在 `http://localhost:5173`
 
-## 环境变量说明
+---
 
-| 变量 | 说明 |
-| --- | --- |
-| `LLM_API_KEY` | 文本大模型 API Key |
-| `LLM_BASE_URL` | 文本大模型 OpenAI-compatible Base URL |
-| `LLM_MODEL` | 文本大模型名称 |
-| `IMAGE_API_KEY` | 生图模型 API Key |
-| `IMAGE_BASE_URL` | 生图模型 Base URL |
-| `IMAGE_MODEL` | 生图模型名称 |
+## 🔧 环境变量
 
-## 设计取舍
+| 变量 | 说明 | 示例 |
+|------|------|------|
+| `LLM_API_KEY` | 文本大模型 API Key | `sk-xxx` |
+| `LLM_BASE_URL` | 文本大模型 Base URL | `https://api.openai.com/v1` |
+| `LLM_MODEL` | 文本大模型名称 | `gpt-4o` |
+| `IMAGE_API_KEY` | 生图模型 API Key | `sk-xxx` |
+| `IMAGE_BASE_URL` | 生图模型 Base URL | `https://dashscope.aliyuncs.com/api/v1` |
+| `IMAGE_MODEL` | 生图模型名称 | `qwen-image` |
 
-- 为避免持续监听导致误触发和隐私问题，系统采用“主动语音输入”方式。用户通过麦克风按钮启动单轮语音输入，绘图创作内容本身均通过语音完成。
-- 为提升生成结果准确性，系统引入提示词确认机制。用户可以在生成前继续补充或修改提示词。
-- 图像二次编辑依赖图像模型能力，当前可通过提示词强调“保持主体不变，仅修改指定部分”，但模型仍可能对未指定区域产生变化。
-- 使用 CrewAI 保持后端智能体架构清晰，便于后续扩展更多 Agent，例如安全审查 Agent、成本控制 Agent、风格推荐 Agent 等。
+---
 
-## 注意事项
+## 💡 设计取舍
 
-- 不要提交 `.env`、`.crewai`、`node_modules`、`dist` 等本地生成文件。
-- 浏览器首次使用语音识别时需要麦克风权限授权。
-- 图像编辑能力依赖具体图像模型，若使用非 DashScope `qwen-image` 系列模型，可能不支持图片编辑。
+- **主动语音输入**：为避免持续监听导致误触发和隐私问题，系统采用点击麦克风按钮启动单轮语音输入的方式。
+- **提示词确认机制**：为提升生成结果准确性，系统会在生成前展示优化提示词并等待用户确认/补充。
+- **图像编辑局限**：二次编辑依赖模型能力，当前通过提示词强调"保持主体不变，仅修改指定部分"，但模型仍可能对未指定区域产生变化。
+- **CrewAI 扩展性**：三智能体架构清晰，便于后续扩展更多 Agent（安全审查 / 成本控制 / 风格推荐等）。
+
+---
+
+## ⚠️ 注意事项
+
+- 不要提交 `.env`、`.crewai`、`node_modules`、`dist` 等本地生成文件
+- 浏览器首次使用语音识别需要麦克风权限授权
+- 图像编辑能力依赖具体模型，非 `qwen-image` 系列可能不支持图片编辑
+
+---
+
+<div align="center">
+  <sub>Built with ❤️ using CrewAI · FastAPI · React</sub>
+</div>

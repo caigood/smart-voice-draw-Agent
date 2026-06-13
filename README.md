@@ -27,7 +27,9 @@ VoiceDraw Agent 是一款面向"纯语音控制绘图工具"课题的 AI 绘图 
 ## 🎬 演示视频
 
 <div align="center">
-  <video src="https://raw.githubusercontent.com/caigood/smart-voice-draw-Agent/main/演示视频.mp4" width="80%" controls></video>
+  <a href="https://github.com/caigood/smart-voice-draw-Agent/blob/main/演示视频.mp4">
+    <img src="https://img.shields.io/badge/▶️_点击播放演示视频-FF6B6B?style=for-the-badge" alt="播放演示视频" />
+  </a>
 </div>
 
 ---

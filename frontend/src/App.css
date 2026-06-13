@@ -511,4 +511,134 @@ body::after {
   .header h1 {
     font-size: 2.2rem;
   }
+
+  .app {
+    padding: 16px;
+  }
+}
+
+/* ====== 手机端 (`<` 640px) ====== */
+@media (max-width: 640px) {
+  .app {
+    padding: 12px;
+  }
+
+  .header {
+    margin-bottom: 18px;
+    padding-top: 6px;
+  }
+
+  .header h1 {
+    font-size: 1.6rem;
+  }
+
+  .header h1::before {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+    font-size: 0.72rem;
+    border-radius: 10px;
+  }
+
+  .subtitle {
+    font-size: 0.88rem;
+    margin-bottom: 10px;
+  }
+
+  .status-bar {
+    font-size: 0.78rem;
+    padding: 6px 14px;
+    gap: 6px;
+  }
+
+  .main-content {
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .image-section,
+  .chat-section {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .image-container {
+    border-radius: 14px;
+    margin-bottom: 12px;
+  }
+
+  .messages {
+    max-height: 300px;
+  }
+
+  .message-content {
+    max-width: 90%;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+
+  .agent-avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 0.62rem;
+    border-radius: 10px;
+  }
+
+  .history-section {
+    padding: 14px;
+    margin-bottom: 14px;
+  }
+
+  .history-item img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .voice-control {
+    padding: 16px 14px;
+  }
+
+  .mic-button {
+    padding: 14px 32px;
+    font-size: 0.95rem;
+    margin-bottom: 14px;
+  }
+
+  .voice-hints {
+    padding: 12px;
+  }
+
+  .voice-hints li {
+    font-size: 0.82rem;
+    padding: 4px 0 4px 18px;
+  }
+
+  .prompt-display {
+    padding: 12px;
+  }
+
+  .prompt-display h3,
+  .history-section h3 {
+    font-size: 0.85rem;
+  }
+
+  .prompt-display p {
+    font-size: 0.85rem;
+  }
+
+  .download-button {
+    padding: 4px 10px;
+    font-size: 0.72rem;
+  }
+
+  .image-preview-overlay {
+    padding: 16px;
+  }
+
+  .image-preview-close {
+    right: 16px;
+    top: 16px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+  }
 }

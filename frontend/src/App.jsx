@@ -59,13 +59,27 @@ function App() {
       recognitionRef.current.onerror = (event) => {
         console.error('Speech recognition error:', event.error)
         setStatus('idle')
+
+        const errorMessages = {
+          'not-allowed': window.isSecureContext
+            ? '麦克风权限被拒绝，请在浏览器地址栏允许麦克风权限后重试。'
+            : '当前不是安全访问环境，手机端语音识别需要 HTTPS；电脑本机请使用 localhost 访问。',
+          'audio-capture': '没有检测到可用麦克风，请检查设备或系统麦克风权限。',
+          'network': '语音识别网络服务异常，请稍后重试。',
+          'no-speech': '没有检测到语音，请靠近麦克风重新说一遍。',
+          'aborted': '语音识别已中断，请重新点击开始说话。'
+        }
+
+        const message = errorMessages[event.error] || '语音识别失败，请重试。'
+
         if (pendingActionRef.current === 'confirm_generate' && pendingPromptRef.current) {
-          const message = '我没有听清你的确认回复，请说“可以生成”或“重新调整”。'
-          addMessage('agent', message)
-          speak(message)
+          const confirmMessage = `${message} 如果要确认生成，请重新点击麦克风后说“可以生成”。`
+          addMessage('agent', confirmMessage)
+          speak(confirmMessage)
           return
         }
-        addMessage('agent', '语音识别失败，请重试。')
+
+        addMessage('agent', message)
       }
 
       recognitionRef.current.onend = () => {
